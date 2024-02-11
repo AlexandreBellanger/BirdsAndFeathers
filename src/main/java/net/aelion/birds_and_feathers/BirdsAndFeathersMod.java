@@ -1,6 +1,8 @@
 package net.aelion.birds_and_feathers;
 
 import com.mojang.logging.LogUtils;
+import net.aelion.birds_and_feathers.items.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -13,16 +15,17 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(BirdsAndFeathersMod.MODID)
+@Mod(BirdsAndFeathersMod.MOD_ID)
 public class BirdsAndFeathersMod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "birds_and_feathers";
+    public static final String MOD_ID = "birds_and_feathers";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public BirdsAndFeathersMod(IEventBus modEventBus)
-    {
+    public BirdsAndFeathersMod(IEventBus modEventBus) {
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
@@ -31,25 +34,23 @@ public class BirdsAndFeathersMod
 
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.RED_FEATHER);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
