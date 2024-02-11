@@ -1,3 +1,17 @@
 {
-  "item.birds_and_feathers.red_feather": "Red feather"
+  "item.birds_and_feathers.light_gray_feather": "Light gray feather",
+  "item.birds_and_feathers.gray_feather": "Gray feather",
+  "item.birds_and_feathers.black_feather": "Black feather",
+  "item.birds_and_feathers.brown_feather": "Brown feather",
+  "item.birds_and_feathers.red_feather": "Red feather",
+  "item.birds_and_feathers.orange_feather": "Orange feather",
+  "item.birds_and_feathers.yellow_feather": "Yellow feather",
+  "item.birds_and_feathers.lime_feather": "Lime feather",
+  "item.birds_and_feathers.green_feather": "Green feather",
+  "item.birds_and_feathers.cyan_feather": "Cyan feather",
+  "item.birds_and_feathers.light_blue_feather": "Light blue feather",
+  "item.birds_and_feathers.blue_feather": "Blue feather",
+  "item.birds_and_feathers.purple_feather": "Purple feather",
+  "item.birds_and_feathers.magenta_feather": "Magenta feather",
+  "item.birds_and_feathers.pink_feather": "Pink feather"
 }

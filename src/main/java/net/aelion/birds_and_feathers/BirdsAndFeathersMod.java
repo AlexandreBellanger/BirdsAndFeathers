@@ -39,7 +39,21 @@ public class BirdsAndFeathersMod
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.LIGHT_GRAY_FEATHER.value());
+            event.accept(ModItems.GRAY_FEATHER);
+            event.accept(ModItems.BLACK_FEATHER);
+            event.accept(ModItems.BROWN_FEATHER);
             event.accept(ModItems.RED_FEATHER);
+            event.accept(ModItems.ORANGE_FEATHER);
+            event.accept(ModItems.YELLOW_FEATHER);
+            event.accept(ModItems.LIME_FEATHER);
+            event.accept(ModItems.GREEN_FEATHER);
+            event.accept(ModItems.CYAN_FEATHER);
+            event.accept(ModItems.LIGHT_BLUE_FEATHER);
+            event.accept(ModItems.BLUE_FEATHER);
+            event.accept(ModItems.PURPLE_FEATHER);
+            event.accept(ModItems.MAGENTA_FEATHER);
+            event.accept(ModItems.PINK_FEATHER);
         }
     }
 

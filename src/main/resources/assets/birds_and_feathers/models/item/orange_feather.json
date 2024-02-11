@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "birds_and_feathers:item/orange_feather"
+  }
+}
