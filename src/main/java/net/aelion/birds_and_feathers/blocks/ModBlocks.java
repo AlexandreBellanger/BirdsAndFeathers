@@ -21,35 +21,35 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WHITE_FEATHER_BLOCK = registerBlock("white_feather_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
     public static final DeferredBlock<Block> LIGHT_GRAY_FEATHER_BLOCK = registerBlock("light_gray_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_WOOL)));
     public static final DeferredBlock<Block> GRAY_FEATHER_BLOCK = registerBlock("gray_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_WOOL)));
     public static final DeferredBlock<Block> BLACK_FEATHER_BLOCK = registerBlock("black_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
     public static final DeferredBlock<Block> BROWN_FEATHER_BLOCK = registerBlock("brown_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_WOOL)));
     public static final DeferredBlock<Block> RED_FEATHER_BLOCK = registerBlock("red_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
     public static final DeferredBlock<Block> ORANGE_FEATHER_BLOCK = registerBlock("orange_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
     public static final DeferredBlock<Block> YELLOW_FEATHER_BLOCK = registerBlock("yellow_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_FEATHER_BLOCK = registerBlock("lime_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_WOOL)));
     public static final DeferredBlock<Block> GREEN_FEATHER_BLOCK = registerBlock("green_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_WOOL)));
     public static final DeferredBlock<Block> CYAN_FEATHER_BLOCK = registerBlock("cyan_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_WOOL)));
     public static final DeferredBlock<Block> LIGHT_BLUE_FEATHER_BLOCK = registerBlock("light_blue_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_WOOL)));
     public static final DeferredBlock<Block> BLUE_FEATHER_BLOCK = registerBlock("blue_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_WOOL)));
     public static final DeferredBlock<Block> PURPLE_FEATHER_BLOCK = registerBlock("purple_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_WOOL)));
     public static final DeferredBlock<Block> MAGENTA_FEATHER_BLOCK = registerBlock("magenta_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_WOOL)));
     public static final DeferredBlock<Block> PINK_FEATHER_BLOCK = registerBlock("pink_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_WOOL)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
