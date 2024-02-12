@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "birds_and_feathers:block/lime_feather_block"
+  }
+}

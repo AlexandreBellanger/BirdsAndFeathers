@@ -1,6 +1,7 @@
 package net.aelion.birds_and_feathers;
 
 import com.mojang.logging.LogUtils;
+import net.aelion.birds_and_feathers.blocks.ModBlocks;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
@@ -25,6 +26,7 @@ public class BirdsAndFeathersMod
 
     public BirdsAndFeathersMod(IEventBus modEventBus) {
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -39,7 +41,7 @@ public class BirdsAndFeathersMod
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.LIGHT_GRAY_FEATHER.value());
+            event.accept(ModItems.LIGHT_GRAY_FEATHER);
             event.accept(ModItems.GRAY_FEATHER);
             event.accept(ModItems.BLACK_FEATHER);
             event.accept(ModItems.BROWN_FEATHER);
@@ -54,6 +56,24 @@ public class BirdsAndFeathersMod
             event.accept(ModItems.PURPLE_FEATHER);
             event.accept(ModItems.MAGENTA_FEATHER);
             event.accept(ModItems.PINK_FEATHER);
+        }
+        else if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+            event.accept(ModBlocks.WHITE_FEATHER_BLOCK);
+            event.accept(ModBlocks.LIGHT_GRAY_FEATHER_BLOCK);
+            event.accept(ModBlocks.GRAY_FEATHER_BLOCK);
+            event.accept(ModBlocks.BLACK_FEATHER_BLOCK);
+            event.accept(ModBlocks.BROWN_FEATHER_BLOCK);
+            event.accept(ModBlocks.RED_FEATHER_BLOCK);
+            event.accept(ModBlocks.ORANGE_FEATHER_BLOCK);
+            event.accept(ModBlocks.YELLOW_FEATHER_BLOCK);
+            event.accept(ModBlocks.LIME_FEATHER_BLOCK);
+            event.accept(ModBlocks.GREEN_FEATHER_BLOCK);
+            event.accept(ModBlocks.CYAN_FEATHER_BLOCK);
+            event.accept(ModBlocks.LIGHT_BLUE_FEATHER_BLOCK);
+            event.accept(ModBlocks.BLUE_FEATHER_BLOCK);
+            event.accept(ModBlocks.PURPLE_FEATHER_BLOCK);
+            event.accept(ModBlocks.MAGENTA_FEATHER_BLOCK);
+            event.accept(ModBlocks.PINK_FEATHER_BLOCK);
         }
     }
 
