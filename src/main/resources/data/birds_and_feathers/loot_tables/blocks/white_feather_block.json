@@ -1,6 +1,6 @@
 {
   "type": "minecraft:block",
-  "pool": [
+  "pools": [
     {
       "bonus_rolls": 0.0,
       "conditions": [
