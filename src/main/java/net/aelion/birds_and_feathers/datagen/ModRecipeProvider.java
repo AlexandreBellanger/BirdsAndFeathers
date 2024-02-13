@@ -10,8 +10,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +26,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
+        List<Item> feathers = new ArrayList<>();
+        feathers.add(Items.FEATHER);
+        for (DeferredItem<Item> feather: ModItems.COLORED_FEATHERS) feathers.add(feather.get());
+
+        List<Block> featherBlocks = new ArrayList<>();
+        List<Item> featherBlockItems = new ArrayList<>();
+        for (DeferredBlock<Block> featherBlock: ModBlocks.FEATHER_BLOCKS) {
+            featherBlocks.add(featherBlock.get());
+            featherBlockItems.add(featherBlock.get().asItem());
+        }
+
+        List<Item> dyes = Arrays.asList(
+                Items.WHITE_DYE,
+                Items.LIGHT_GRAY_DYE,
+                Items.GRAY_DYE,
+                Items.BLACK_DYE,
+                Items.BROWN_DYE,
+                Items.RED_DYE,
+                Items.ORANGE_DYE,
+                Items.YELLOW_DYE,
+                Items.LIME_DYE,
+                Items.GREEN_DYE,
+                Items.CYAN_DYE,
+                Items.LIGHT_BLUE_DYE,
+                Items.BLUE_DYE,
+                Items.PURPLE_DYE,
+                Items.MAGENTA_DYE,
+                Items.PINK_DYE
+        );
+
         List<Block> beds = Arrays.asList(
                 Blocks.WHITE_BED,
                 Blocks.LIGHT_GRAY_BED,
@@ -42,22 +75,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Blocks.PINK_BED
         );
 
+        colorBlockWithDye(pRecipeOutput, dyes, featherBlockItems, "feather_block");
+
         for (int i = 0; i<16; ++i){
-            Block featherBlock = ModBlocks.FEATHER_BLOCKS.get(i).get();
-            Item feather = i==0 ? Items.FEATHER : ModItems.COLORED_FEATHERS.get(i-1).get();
+            Item feather = feathers.get(i);
+            Block featherBlock = featherBlocks.get(i);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, featherBlock)
-                    .pattern("FFF")
-                    .pattern("FFF")
-                    .pattern("FFF")
-                    .define('F', feather)
-                    .unlockedBy(getHasName(feather), has(feather))
-                    .save(pRecipeOutput);
-
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, feather, 9)
-                    .requires(featherBlock)
-                    .unlockedBy(getHasName(featherBlock), has(featherBlock))
-                    .save(pRecipeOutput);
+            nineBlockStorageRecipes(pRecipeOutput,
+                    RecipeCategory.MISC, feather,
+                    RecipeCategory.BUILDING_BLOCKS, featherBlock);
 
             bedFromPlanksAndWool(pRecipeOutput, beds.get(i), featherBlock);
         }

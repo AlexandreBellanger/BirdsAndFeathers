@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "feather_block",
+  "ingredients": [
+    {
+      "item": "minecraft:orange_dye"
+    },
+    [
+      {
+        "item": "birds_and_feathers:white_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:light_gray_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:gray_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:black_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:brown_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:red_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:yellow_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:lime_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:green_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:cyan_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:light_blue_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:blue_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:purple_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:magenta_feather_block"
+      },
+      {
+        "item": "birds_and_feathers:pink_feather_block"
+      }
+    ]
+  ],
+  "result": {
+    "item": "birds_and_feathers:orange_feather_block"
+  }
+}
