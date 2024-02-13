@@ -6,7 +6,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -75,6 +77,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Blocks.PINK_BED
         );
 
+        colorFeatherWithDye(pRecipeOutput, dyes, feathers);
         colorBlockWithDye(pRecipeOutput, dyes, featherBlockItems, "feather_block");
 
         for (int i = 0; i<16; ++i){
@@ -86,6 +89,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     RecipeCategory.BUILDING_BLOCKS, featherBlock);
 
             bedFromPlanksAndWool(pRecipeOutput, beds.get(i), featherBlock);
+        }
+    }
+
+    protected static void colorFeatherWithDye(RecipeOutput pRecipeOutput, List<Item> pDyes, List<Item> pFeathers) {
+        for(int i = 0; i < pDyes.size(); ++i) {
+            Item dye = pDyes.get(i);
+            Item feather = pFeathers.get(i);
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, feather)
+                    .requires(dye)
+                    .requires(Ingredient.of(pFeathers.stream().filter(p_288265_ -> !p_288265_.equals(feather)).map(ItemStack::new)))
+                    .group("feathers")
+                    .unlockedBy("has_needed_dye", has(dye))
+                    .save(pRecipeOutput, "dye_" + getItemName(feather));
         }
     }
 }

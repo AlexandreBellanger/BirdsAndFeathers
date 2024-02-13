@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "feathers",
+  "ingredients": [
+    {
+      "item": "minecraft:purple_dye"
+    },
+    [
+      {
+        "item": "minecraft:feather"
+      },
+      {
+        "item": "birds_and_feathers:light_gray_feather"
+      },
+      {
+        "item": "birds_and_feathers:gray_feather"
+      },
+      {
+        "item": "birds_and_feathers:black_feather"
+      },
+      {
+        "item": "birds_and_feathers:brown_feather"
+      },
+      {
+        "item": "birds_and_feathers:red_feather"
+      },
+      {
+        "item": "birds_and_feathers:orange_feather"
+      },
+      {
+        "item": "birds_and_feathers:yellow_feather"
+      },
+      {
+        "item": "birds_and_feathers:lime_feather"
+      },
+      {
+        "item": "birds_and_feathers:green_feather"
+      },
+      {
+        "item": "birds_and_feathers:cyan_feather"
+      },
+      {
+        "item": "birds_and_feathers:light_blue_feather"
+      },
+      {
+        "item": "birds_and_feathers:blue_feather"
+      },
+      {
+        "item": "birds_and_feathers:magenta_feather"
+      },
+      {
+        "item": "birds_and_feathers:pink_feather"
+      }
+    ]
+  ],
+  "result": {
+    "item": "birds_and_feathers:purple_feather"
+  }
+}
