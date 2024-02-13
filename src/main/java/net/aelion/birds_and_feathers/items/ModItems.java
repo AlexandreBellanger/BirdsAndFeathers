@@ -6,6 +6,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(BirdsAndFeathersMod.MOD_ID);
@@ -40,6 +43,24 @@ public class ModItems {
             ITEMS.register("magenta_feather", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> PINK_FEATHER =
             ITEMS.register("pink_feather", () -> new Item(new Item.Properties()));
+
+    public static final List<DeferredItem<Item>> COLORED_FEATHERS = Arrays.asList(
+            LIGHT_GRAY_FEATHER,
+            GRAY_FEATHER,
+            BLACK_FEATHER,
+            BROWN_FEATHER,
+            RED_FEATHER,
+            ORANGE_FEATHER,
+            YELLOW_FEATHER,
+            LIME_FEATHER,
+            GREEN_FEATHER,
+            CYAN_FEATHER,
+            LIGHT_BLUE_FEATHER,
+            BLUE_FEATHER,
+            PURPLE_FEATHER,
+            MAGENTA_FEATHER,
+            PINK_FEATHER
+    );
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

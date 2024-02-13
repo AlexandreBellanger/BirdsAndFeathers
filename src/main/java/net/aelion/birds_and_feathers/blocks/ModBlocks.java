@@ -12,6 +12,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -50,6 +52,25 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_WOOL)));
     public static final DeferredBlock<Block> PINK_FEATHER_BLOCK = registerBlock("pink_feather_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_WOOL)));
+
+    public static final List<DeferredBlock<Block>> FEATHER_BLOCKS = Arrays.asList(
+            WHITE_FEATHER_BLOCK,
+            LIGHT_GRAY_FEATHER_BLOCK,
+            GRAY_FEATHER_BLOCK,
+            BLACK_FEATHER_BLOCK,
+            BROWN_FEATHER_BLOCK,
+            RED_FEATHER_BLOCK,
+            ORANGE_FEATHER_BLOCK,
+            YELLOW_FEATHER_BLOCK,
+            LIME_FEATHER_BLOCK,
+            GREEN_FEATHER_BLOCK,
+            CYAN_FEATHER_BLOCK,
+            LIGHT_BLUE_FEATHER_BLOCK,
+            BLUE_FEATHER_BLOCK,
+            PURPLE_FEATHER_BLOCK,
+            MAGENTA_FEATHER_BLOCK,
+            PINK_FEATHER_BLOCK
+            );
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
