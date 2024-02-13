@@ -1,11 +1,17 @@
 package net.aelion.birds_and_feathers.datagen;
 
 import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.items.ModItems;
+import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredItem;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,7 +24,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
-
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
+        this.tag(ModTags.Items.FEATHER).add(Items.FEATHER);
+        for (DeferredItem<Item> feather: ModItems.COLORED_FEATHERS)
+            this.tag(ModTags.Items.FEATHER).add(feather.get());
     }
 }
