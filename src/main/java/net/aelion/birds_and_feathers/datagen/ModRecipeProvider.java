@@ -2,6 +2,7 @@ package net.aelion.birds_and_feathers.datagen;
 
 import net.aelion.birds_and_feathers.blocks.ModBlocks;
 import net.aelion.birds_and_feathers.items.ModItems;
+import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -46,6 +47,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
             bedFromPlanksAndWool(pRecipeOutput, beds.get(i), featherBlock);
         }
+
+        brush(pRecipeOutput);
+        bookAndQuill(pRecipeOutput);
     }
 
     protected static void colorFeatherWithDye(RecipeOutput pRecipeOutput, List<Item> pDyes, List<Item> pFeathers) {
@@ -61,21 +65,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
     }
 
-    /* probably need item tag or item group instead
-     * this is not important for the mod anyway
-
-    protected static void bookAndQuill(RecipeOutput pRecipeOutput, ItemLike pFeather) {
+    protected static void bookAndQuill(RecipeOutput pRecipeOutput) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WRITABLE_BOOK)
                 .requires(Items.BOOK)
                 .requires(Items.INK_SAC)
-                .requires(pFeather)
+                .requires(ModTags.Items.FEATHER)
                 .unlockedBy(getHasName(Items.BOOK), has(Items.BOOK))
                 .save(pRecipeOutput);
     }
 
-    protected static void brush(RecipeOutput pRecipeOutput, ItemLike pFeather) {
+    protected static void brush(RecipeOutput pRecipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, Items.BRUSH)
-                .define('W', pFeather)
+                .define('W', ModTags.Items.FEATHER)
                 .define('#', Items.COPPER_INGOT)
                 .define('I', Items.STICK)
                 .pattern("W")
@@ -84,7 +85,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
                 .save(pRecipeOutput);
     }
-    */
 
     private static List<Item> listFeathers() {
         List<Item> feathers = new ArrayList<>();
