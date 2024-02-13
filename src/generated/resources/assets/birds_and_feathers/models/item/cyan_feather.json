@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "birds_and_feathers:item/cyan_feather"
+  }
+}

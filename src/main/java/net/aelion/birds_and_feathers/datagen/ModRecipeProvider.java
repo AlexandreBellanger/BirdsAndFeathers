@@ -5,6 +5,9 @@ import net.aelion.birds_and_feathers.items.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,17 +20,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_FEATHER_BLOCK.get())
-                .pattern("FFF")
-                .pattern("FFF")
-                .pattern("FFF")
-                .define('F', ModItems.BLACK_FEATHER.get())
-                .unlockedBy(getHasName(ModItems.BLACK_FEATHER.get()), has(ModItems.BLACK_FEATHER.get()))
-                .save(pRecipeOutput);
+        for (int i = 0; i<16; ++i){
+            Block featherBlock = ModBlocks.FEATHER_BLOCKS.get(i).get();
+            Item feather = i==0 ? Items.FEATHER : ModItems.COLORED_FEATHERS.get(i-1).get();
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_FEATHER.get())
-                .requires(ModBlocks.BLACK_FEATHER_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.BLACK_FEATHER_BLOCK.get()), has(ModBlocks.BLACK_FEATHER_BLOCK.get()))
-                .save(pRecipeOutput);
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, featherBlock)
+                    .pattern("FFF")
+                    .pattern("FFF")
+                    .pattern("FFF")
+                    .define('F', feather)
+                    .unlockedBy(getHasName(feather), has(feather))
+                    .save(pRecipeOutput);
+
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, feather, 9)
+                    .requires(featherBlock)
+                    .unlockedBy(getHasName(featherBlock), has(featherBlock))
+                    .save(pRecipeOutput);
+        }
     }
 }

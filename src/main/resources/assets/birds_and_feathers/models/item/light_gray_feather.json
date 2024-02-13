@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "birds_and_feathers:item/light_gray_feather"
-  }
-}

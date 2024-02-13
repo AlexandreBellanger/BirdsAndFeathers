@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "birds_and_feathers:lime_feather_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "birds_and_feathers:blocks/lime_feather_block"
+}
