@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:flint"
+    },
+    "F": {
+      "tag": "birds_and_feathers:feather"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "A",
+    "I",
+    "F"
+  ],
+  "result": {
+    "item": "minecraft:arrow"
+  }
+}

@@ -50,6 +50,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         brush(pRecipeOutput);
         bookAndQuill(pRecipeOutput);
+        arrow(pRecipeOutput);
     }
 
     protected static void colorFeatherWithDye(RecipeOutput pRecipeOutput, List<Item> pDyes, List<Item> pFeathers) {
@@ -85,6 +86,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
                 .save(pRecipeOutput);
     }
+
+    // This is not necessarily final:
+    // I would like to have colored arrows
+    // But I don't know an easy way to generate the textures
+    protected static void arrow(RecipeOutput pRecipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW)
+                .define('F', ModTags.Items.FEATHER)
+                .define('A', Items.FLINT)
+                .define('I', Items.STICK)
+                .pattern("A")
+                .pattern("I")
+                .pattern("F")
+                .unlockedBy(getHasName(Items.FLINT), has(Items.FLINT))
+                .save(pRecipeOutput);
+    }
+
 
     private static List<Item> listFeathers() {
         List<Item> feathers = new ArrayList<>();
