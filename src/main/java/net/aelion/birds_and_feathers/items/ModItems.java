@@ -1,6 +1,7 @@
 package net.aelion.birds_and_feathers.items;
 
 import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -61,6 +62,16 @@ public class ModItems {
             MAGENTA_FEATHER,
             PINK_FEATHER
     );
+
+    public static final DeferredItem<Item> FEATHER_CREST = ITEMS.register("feather_crest",
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<Item> FEATHER_TUNIC = ITEMS.register("feather_tunic",
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<Item> FEATHER_PANTS = ITEMS.register("feather_pants",
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<Item> FEATHER_BOOTS = ITEMS.register("feather_boots",
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

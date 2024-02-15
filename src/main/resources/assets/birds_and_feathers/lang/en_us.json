@@ -30,5 +30,10 @@
   "block.birds_and_feathers.blue_feather_block": "Blue feather block",
   "block.birds_and_feathers.purple_feather_block": "Purple feather block",
   "block.birds_and_feathers.magenta_feather_block": "Magenta feather block",
-  "block.birds_and_feathers.pink_feather_block": "Pink feather block"
+  "block.birds_and_feathers.pink_feather_block": "Pink feather block",
+
+  "item.birds_and_feather.feather_crest": "Feather crest",
+  "item.birds_and_feather.feather_tunic": "Feather tunic",
+  "item.birds_and_feather.feather_pants": "Feather pants",
+  "item.birds_and_feather.feather_boots": "Feather boots"
 }
