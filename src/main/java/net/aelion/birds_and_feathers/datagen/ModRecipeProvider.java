@@ -91,7 +91,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     // TODO: I would like to have colored arrows
     // TODO: But I don't know an easy way to generate the textures
     protected static void arrow(RecipeOutput pRecipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4)
                 .define('F', ModTags.Items.FEATHER)
                 .define('A', Items.FLINT)
                 .define('I', Items.STICK)
