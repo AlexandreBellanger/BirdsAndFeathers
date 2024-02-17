@@ -48,9 +48,55 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             bedFromPlanksAndWool(pRecipeOutput, beds.get(i), featherBlock);
         }
 
+        armor(pRecipeOutput);
         brush(pRecipeOutput);
         bookAndQuill(pRecipeOutput);
         arrow(pRecipeOutput);
+    }
+
+    // This is not necessarily final:
+    // TODO: I would like to have colored arrows
+    // TODO: But I don't know an easy way to generate the textures
+    protected static void arrow(RecipeOutput pRecipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4)
+                .define('F', ModTags.Items.FEATHER)
+                .define('A', Items.FLINT)
+                .define('I', Items.STICK)
+                .pattern("A")
+                .pattern("I")
+                .pattern("F")
+                .unlockedBy(getHasName(Items.FLINT), has(Items.FLINT))
+                .unlockedBy(getHasName(Items.FEATHER), has(Items.FEATHER))
+                .save(pRecipeOutput);
+    }
+
+    protected static void armor(RecipeOutput pRecipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_HELMET)
+                .define('X', ModTags.Items.FEATHER)
+                .pattern("XXX")
+                .pattern("X X")
+                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_CHESTPLATE)
+                .define('X', ModTags.Items.FEATHER)
+                .pattern("X X")
+                .pattern("XXX")
+                .pattern("XXX")
+                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_LEGGINGS)
+                .define('X', ModTags.Items.FEATHER)
+                .pattern("XXX")
+                .pattern("X X")
+                .pattern("X X")
+                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_BOOTS)
+                .define('X', ModTags.Items.FEATHER)
+                .pattern("X X")
+                .pattern("X X")
+                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .save(pRecipeOutput);
     }
 
     protected static void colorFeatherWithDye(RecipeOutput pRecipeOutput, List<Item> pDyes, List<Item> pFeathers) {
@@ -86,22 +132,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
                 .save(pRecipeOutput);
     }
-
-    // This is not necessarily final:
-    // TODO: I would like to have colored arrows
-    // TODO: But I don't know an easy way to generate the textures
-    protected static void arrow(RecipeOutput pRecipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4)
-                .define('F', ModTags.Items.FEATHER)
-                .define('A', Items.FLINT)
-                .define('I', Items.STICK)
-                .pattern("A")
-                .pattern("I")
-                .pattern("F")
-                .unlockedBy(getHasName(Items.FLINT), has(Items.FLINT))
-                .save(pRecipeOutput);
-    }
-
 
     private static List<Item> listFeathers() {
         List<Item> feathers = new ArrayList<>();

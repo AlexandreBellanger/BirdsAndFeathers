@@ -6,6 +6,7 @@ import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -28,5 +29,11 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.FEATHER).add(Items.FEATHER);
         for (DeferredItem<Item> feather: ModItems.COLORED_FEATHERS)
             this.tag(ModTags.Items.FEATHER).add(feather.get());
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.FEATHER_HELMET.get(),
+                        ModItems.FEATHER_CHESTPLATE.get(),
+                        ModItems.FEATHER_LEGGINGS.get(),
+                        ModItems.FEATHER_BOOTS.get());
     }
 }

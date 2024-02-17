@@ -63,14 +63,14 @@ public class ModItems {
             PINK_FEATHER
     );
 
-    public static final DeferredItem<Item> FEATHER_CREST = ITEMS.register("feather_crest",
+    public static final DeferredItem<Item> FEATHER_HELMET = ITEMS.register("feather_helmet",
             () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final DeferredItem<Item> FEATHER_TUNIC = ITEMS.register("feather_tunic",
+    public static final DeferredItem<Item> FEATHER_CHESTPLATE = ITEMS.register("feather_chestplate",
             () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final DeferredItem<Item> FEATHER_PANTS = ITEMS.register("feather_pants",
-            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<Item> FEATHER_LEGGINGS = ITEMS.register("feather_leggings",
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredItem<Item> FEATHER_BOOTS = ITEMS.register("feather_boots",
-            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new ArmorItem(ModArmorMaterials.FEATHER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

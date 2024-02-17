@@ -75,6 +75,12 @@ public class BirdsAndFeathersMod
             event.accept(ModBlocks.MAGENTA_FEATHER_BLOCK);
             event.accept(ModBlocks.PINK_FEATHER_BLOCK);
         }
+        else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.FEATHER_HELMET);
+            event.accept(ModItems.FEATHER_CHESTPLATE);
+            event.accept(ModItems.FEATHER_LEGGINGS);
+            event.accept(ModItems.FEATHER_BOOTS);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
