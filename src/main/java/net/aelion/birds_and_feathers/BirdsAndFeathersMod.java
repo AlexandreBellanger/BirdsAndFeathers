@@ -2,6 +2,7 @@ package net.aelion.birds_and_feathers;
 
 import com.mojang.logging.LogUtils;
 import net.aelion.birds_and_feathers.blocks.ModBlocks;
+import net.aelion.birds_and_feathers.items.ModCreativeTabs;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -29,6 +30,8 @@ public class BirdsAndFeathersMod
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public BirdsAndFeathersMod(IEventBus modEventBus) {
+
+        ModCreativeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
