@@ -1,22 +1,65 @@
 package net.aelion.birds_and_feathers.items;
 
 import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
-import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    // TODO: I think we will need 16 feather armor sets
-    // (ModTags would imply that we can mix different feather color)
-    FEATHER("feather", 3, new int[]{0, 1, 1, 0}, 5,
+    WHITE_FEATHER("white_feather", 3, new int[]{0, 1, 1, 0}, 5,
             SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
-            () -> Ingredient.of(ModTags.Items.FEATHER));
+            () -> Ingredient.of(Items.FEATHER)),
+    LIGHT_GRAY_FEATHER("light_gray_feather", 3, new int[]{0, 1, 1, 0}, 5,
+            SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.LIGHT_GRAY_FEATHER)),
+    GRAY_FEATHER("gray_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.GRAY_FEATHER)),
+    BLACK_FEATHER("black_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.BLACK_FEATHER)),
+    BROWN_FEATHER("brown_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.BROWN_FEATHER)),
+    RED_FEATHER("red_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.RED_FEATHER)),
+    ORANGE_FEATHER("orange_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.ORANGE_FEATHER)),
+    YELLOW_FEATHER("yellow_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.YELLOW_FEATHER)),
+    LIME_FEATHER("lime_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.LIME_FEATHER)),
+    GREEN_FEATHER("green_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.GREEN_FEATHER)),
+    CYAN_FEATHER("cyan_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.CYAN_FEATHER)),
+    LIGHT_BLUE_FEATHER("light_blue_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.LIGHT_BLUE_FEATHER)),
+    BLUE_FEATHER("blue_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.BLUE_FEATHER)),
+    PURPLE_FEATHER("purple_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.PURPLE_FEATHER)),
+    MAGENTA_FEATHER("magenta_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.MAGENTA_FEATHER)),
+    PINK_FEATHER("pink_feather", 3, new int[]{0, 1, 1, 0}, 5,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f,
+            () -> Ingredient.of(ModItems.PINK_FEATHER));
 
     private final String name;
     private final int durabilityMultiplier;

@@ -44,10 +44,13 @@ public class ModItemModelProvider extends ItemModelProvider {
             simpleItem(feather);
         }
 
-        trimmedArmorItem(ModItems.FEATHER_HELMET);
-        trimmedArmorItem(ModItems.FEATHER_CHESTPLATE);
-        trimmedArmorItem(ModItems.FEATHER_LEGGINGS);
-        trimmedArmorItem(ModItems.FEATHER_BOOTS);
+        for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS){
+            if (featherArmor.getId().getPath().contains("helmet"))
+                continue;
+            if (featherArmor.getId().getPath().contains("winged"))
+                continue;
+            trimmedArmorItem(featherArmor);
+        }
     }
 
     // Shoutout to El_Redstoniano for making this

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "birds_and_feathers:item/red_feather_leggings",
+    "layer1": "minecraft:trims/items/leggings_trim_copper"
+  }
+}

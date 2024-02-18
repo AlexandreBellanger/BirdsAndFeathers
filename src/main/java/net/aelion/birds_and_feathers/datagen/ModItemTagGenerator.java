@@ -30,10 +30,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         for (DeferredItem<Item> feather: ModItems.COLORED_FEATHERS)
             this.tag(ModTags.Items.FEATHER).add(feather.get());
 
-        this.tag(ItemTags.TRIMMABLE_ARMOR)
-                .add(ModItems.FEATHER_HELMET.get(),
-                        ModItems.FEATHER_CHESTPLATE.get(),
-                        ModItems.FEATHER_LEGGINGS.get(),
-                        ModItems.FEATHER_BOOTS.get());
+        for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS){
+            if (featherArmor.getId().getPath().contains("helmet"))
+                continue;
+            this.tag(ItemTags.TRIMMABLE_ARMOR).add(featherArmor.get());
+        }
     }
 }

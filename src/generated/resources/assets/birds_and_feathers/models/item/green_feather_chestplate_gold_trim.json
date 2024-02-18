@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "birds_and_feathers:item/green_feather_chestplate",
+    "layer1": "minecraft:trims/items/chestplate_trim_gold"
+  }
+}

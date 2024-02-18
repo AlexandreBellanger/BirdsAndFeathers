@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gray_feather": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "birds_and_feathers:gray_feather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "birds_and_feathers:gray_feather_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gray_feather"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "birds_and_feathers:gray_feather_chestplate"
+    ]
+  }
+}

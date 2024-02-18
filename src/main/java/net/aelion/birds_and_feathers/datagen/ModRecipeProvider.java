@@ -31,6 +31,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
         List<Item> feathers = listFeathers();
         List<Item> featherBlocks = listFeatherBlockAsItems();
+        List<Item> featherArmorItems = listFeatherArmors();
         List<Item> dyes = listDyes();
         List<Block> beds = listBeds();
 
@@ -46,9 +47,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     RecipeCategory.BUILDING_BLOCKS, featherBlock);
 
             bedFromPlanksAndWool(pRecipeOutput, beds.get(i), featherBlock);
+
+            helmet(     pRecipeOutput, feather, featherArmorItems.get( 5*i     ));
+            chestplate( pRecipeOutput, feather, featherArmorItems.get( 5*i + 1 ));
+            leggings(   pRecipeOutput, feather, featherArmorItems.get( 5*i + 2 ));
+            boots(      pRecipeOutput, feather, featherArmorItems.get( 5*i + 3 ));
+            // Winged boots (at 5*i+4) should not be obtainable the normal way
         }
 
-        armor(pRecipeOutput);
         brush(pRecipeOutput);
         bookAndQuill(pRecipeOutput);
         arrow(pRecipeOutput);
@@ -70,32 +76,41 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pRecipeOutput);
     }
 
-    protected static void armor(RecipeOutput pRecipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_HELMET)
-                .define('X', ModTags.Items.FEATHER)
+    protected static void helmet(RecipeOutput pRecipeOutput, Item ingredient, Item armorItem){
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, armorItem)
+                .define('X', ingredient)
                 .pattern("XXX")
                 .pattern("X X")
-                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .unlockedBy(getHasName(ingredient), has(ingredient))
                 .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_CHESTPLATE)
-                .define('X', ModTags.Items.FEATHER)
+    }
+
+    protected static void chestplate(RecipeOutput pRecipeOutput, Item ingredient, Item armorItem){
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, armorItem)
+                .define('X', ingredient)
                 .pattern("X X")
                 .pattern("XXX")
                 .pattern("XXX")
-                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .unlockedBy(getHasName(ingredient), has(ingredient))
                 .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_LEGGINGS)
-                .define('X', ModTags.Items.FEATHER)
+    }
+
+    protected static void leggings(RecipeOutput pRecipeOutput, Item ingredient, Item armorItem){
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, armorItem)
+                .define('X', ingredient)
                 .pattern("XXX")
                 .pattern("X X")
                 .pattern("X X")
-                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .unlockedBy(getHasName(ingredient), has(ingredient))
                 .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FEATHER_BOOTS)
-                .define('X', ModTags.Items.FEATHER)
+    }
+
+    protected static void boots(RecipeOutput pRecipeOutput, Item ingredient, Item armorItem){
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, armorItem)
+                .define('X', ingredient)
                 .pattern("X X")
                 .pattern("X X")
-                .unlockedBy(getHasName(Items.FEATHER), has(ModTags.Items.FEATHER))
+                .unlockedBy(getHasName(ingredient), has(ingredient))
                 .save(pRecipeOutput);
     }
 
@@ -145,6 +160,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         for (DeferredBlock<Block> featherBlock: ModBlocks.FEATHER_BLOCKS)
             featherBlockAsItems.add(featherBlock.get().asItem());
         return featherBlockAsItems;
+    }
+
+    private static List<Item> listFeatherArmors() {
+        List<Item> featherArmors = new ArrayList<>();
+        for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS) featherArmors.add(featherArmor.get());
+        return featherArmors;
     }
 
     private static List<Item> listDyes() {
