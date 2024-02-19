@@ -46,17 +46,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS){
             if (featherArmor.getId().getPath().contains("helmet"))
-                nonTrimmableArmorItem(featherArmor);
-            if (featherArmor.getId().getPath().contains("winged"))
-                nonTrimmableArmorItem(featherArmor);
-            trimmedArmorItem(featherArmor);
+                simpleItem(featherArmor);
+            else trimmedArmorItem(featherArmor);
         }
-    }
-
-    private void nonTrimmableArmorItem(DeferredItem<Item> item) {
-        this.withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(BirdsAndFeathersMod.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this
