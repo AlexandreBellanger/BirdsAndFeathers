@@ -38,10 +38,10 @@ def generate_feather_textures(save_path):
 
 
 def generate_feather_armors(save_path):
-    for armor_type in ["helmet", "chestplate", "leggings", "boots", "winged_boots", "layer1", "layer2"]:
+    for armor_type in ["helmet", "chestplate", "leggings", "boots", "winged_boots", "layer_1", "layer_2"]:
         base_texture = Image.open("textures/featherArmor/base_feather_" + armor_type + ".png")
         for color in colors:
-            save_path_addition = "models/armor/" if armor_type in ["layer1", "layer2"] else "item/"
+            save_path_addition = "models/armor/" if armor_type in ["layer_1", "layer_2"] else "item/"
             full_save_path = save_path + save_path_addition + color + "_feather_" + armor_type + ".png"
             generate_texture(base_texture, color, full_save_path)
 

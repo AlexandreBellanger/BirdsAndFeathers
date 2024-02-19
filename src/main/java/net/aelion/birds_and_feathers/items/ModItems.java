@@ -72,7 +72,7 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.WHITE_FEATHER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredItem<Item> WHITE_FEATHER_BOOTS = ITEMS.register("white_feather_boots",
             () -> new ArmorItem(ModArmorMaterials.WHITE_FEATHER, ArmorItem.Type.BOOTS, new Item.Properties()));
-    public static final DeferredItem<Item> WHITE_WINGED_FEATHER_BOOTS = ITEMS.register("white__winged_feather_boots",
+    public static final DeferredItem<Item> WHITE_WINGED_FEATHER_BOOTS = ITEMS.register("white_winged_feather_boots",
             () -> new ArmorItem(ModArmorMaterials.LIGHT_GRAY_FEATHER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final DeferredItem<Item> LIGHT_GRAY_FEATHER_HELMET = ITEMS.register("light_gray_feather_helmet",
