@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class FeatherArmorItem extends ArmorItem {
     private static final MobEffectInstance FEATHER_ARMOR_EFFECT =
-            new MobEffectInstance(MobEffects.REGENERATION,20, 1,
+            new MobEffectInstance(MobEffects.SLOW_FALLING,20, 1,
                     false, true, true);
 
     public FeatherArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {

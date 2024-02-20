@@ -1,0 +1,10 @@
+{
+  "type": "birds_and_feathers:add_item",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/parrot"
+    }
+  ],
+  "item": "birds_and_feathers:light_blue_feather"
+}
