@@ -31,9 +31,13 @@ public class ModItemTagGenerator extends ItemTagsProvider {
             this.tag(ModTags.Items.FEATHER).add(feather.get());
 
         for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS){
-            if (featherArmor.getId().getPath().contains("helmet"))
-                continue;
-            this.tag(ItemTags.TRIMMABLE_ARMOR).add(featherArmor.get());
+            this.tag(ModTags.Items.FEATHER_ARMOR).add(featherArmor.get());
+            if (!featherArmor.getId().getPath().contains("helmet"))
+                this.tag(ItemTags.TRIMMABLE_ARMOR).add(featherArmor.get());
         }
+
+        this.tag(ModTags.Items.TOLERATED_BY_PHANTOMS)
+                .addTag(ModTags.Items.FEATHER_ARMOR)
+                .add(Items.ELYTRA);
     }
 }

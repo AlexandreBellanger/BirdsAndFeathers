@@ -19,6 +19,8 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> FEATHER = tag("feather");
+        public static final TagKey<Item> FEATHER_ARMOR = tag("feather_armor");
+        public static final TagKey<Item> TOLERATED_BY_PHANTOMS = tag("tolerated_by_phantoms");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(BirdsAndFeathersMod.MOD_ID, name));
