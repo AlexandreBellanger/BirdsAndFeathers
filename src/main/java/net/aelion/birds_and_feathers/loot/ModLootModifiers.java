@@ -13,8 +13,8 @@ public class ModLootModifiers {
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
                     BirdsAndFeathersMod.MOD_ID);
 
-    public static final DeferredHolder<Codec<? extends IGlobalLootModifier>, Codec<AddItemModifier>> ADD_ITEM =
-            LOOT_MODIFIER_SERIALIZER.register("add_item", AddItemModifier.CODEC);
+    public static final DeferredHolder<Codec<? extends IGlobalLootModifier>, Codec<LootReplacer>> REPLACE_LOOT =
+            LOOT_MODIFIER_SERIALIZER.register("replace_loot", LootReplacer.CODEC);
 
     public static void register(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZER.register(eventBus);

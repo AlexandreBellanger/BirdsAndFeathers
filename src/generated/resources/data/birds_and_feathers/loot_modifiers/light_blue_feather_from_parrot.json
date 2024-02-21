@@ -1,5 +1,5 @@
 {
-  "type": "birds_and_feathers:add_item",
+  "type": "birds_and_feathers:replace_loot",
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",

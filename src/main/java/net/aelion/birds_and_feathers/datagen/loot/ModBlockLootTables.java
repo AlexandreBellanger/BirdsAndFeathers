@@ -32,14 +32,5 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         }
 
         return blocks;
-
-        // This recommended method was not working as there are no RegistryObject
-        /*/
-        return ModBlocks.BLOCKS.getEntries() // Get all registered entries
-                .stream() // Stream the wrapped objects
-                .map(RegistryObject::get) // Get the object if available
-                ::iterator; // Create the iterable
-                
-         */
     }
 }
