@@ -6,10 +6,11 @@ I am following this tutorial made by Kaupenjoe (but I am using NeoForge instead 
 https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14twa-&pp=iAQB
 
 # Implemented features:
-- colored feathers
+- 15 colored feathers
   - obtainable by dying feathers
+  - parrots drop matching colored feather
   - can be used in most recipes involving feather
-- feather blocks
+- 16 feather blocks
   - craftable with 9 feathers
   - can be unpacked to retrieve 9 feathers
   - beds can be crafted with feather blocks instead of wool
@@ -27,6 +28,6 @@ https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14t
 # Planned
 - several new bird species
   - some with special AI
-  - parrots and other birds drop corresponding feathers
+  - drop corresponding feathers
 - arrows with colored fletching
   - tipped arrows with colored fletching

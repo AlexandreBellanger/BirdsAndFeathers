@@ -2,7 +2,7 @@ package net.aelion.birds_and_feathers.datagen;
 
 import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
 import net.aelion.birds_and_feathers.items.ModItems;
-import net.aelion.birds_and_feathers.loot.LootReplacer;
+import net.aelion.birds_and_feathers.loot.ParrotLootReplacer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -17,11 +17,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        add("light_blue_feather_from_parrot", new LootReplacer(
+        add("light_blue_feather_from_parrot", new ParrotLootReplacer(
                 new LootItemCondition[] {
                         new LootTableIdCondition.Builder(new ResourceLocation("entities/parrot")).build()
-                },
-                ModItems.LIGHT_BLUE_FEATHER.get()));
+                }));
 
     }
 }
