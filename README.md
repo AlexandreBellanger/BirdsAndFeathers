@@ -14,6 +14,7 @@ https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14t
   - craftable with 9 feathers
   - can be unpacked to retrieve 9 feathers
   - beds can be crafted with feather blocks instead of wool
+  - share most of wool properties including the ability to stop sounds from reaching skulk sensors
     
 # Work in progress
 - feather armor
