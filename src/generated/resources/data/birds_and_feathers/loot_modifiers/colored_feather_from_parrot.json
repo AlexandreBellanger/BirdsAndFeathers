@@ -1,5 +1,5 @@
 {
-  "type": "birds_and_feathers:replace_loot",
+  "type": "birds_and_feathers:replace_parrot_feather",
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",

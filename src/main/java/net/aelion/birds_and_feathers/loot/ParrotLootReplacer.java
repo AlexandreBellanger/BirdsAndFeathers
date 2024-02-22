@@ -46,31 +46,40 @@ public class ParrotLootReplacer extends LootModifier {
             }
         }
 
+        // I don't know if this is needed
+        if (!context.hasParam(LootContextParams.THIS_ENTITY)) {
+            return generatedLoot;
+        }
+
+        Entity entity = context.getParam(LootContextParams.THIS_ENTITY);
+        SynchedEntityData entityData = entity.getEntityData();
+
+        // Default parrot variant has red feathers
         Item correct_feather = ModItems.RED_FEATHER.get();
 
-        if (context.hasParam(LootContextParams.THIS_ENTITY)) {
-            Entity entity = context.getParam(LootContextParams.THIS_ENTITY);
-            SynchedEntityData entityData = entity.getEntityData();
-            // I feel like this is not at all how it should be done
-            for ( SynchedEntityData.DataValue<?> dataValue: Objects.requireNonNull(entityData.getNonDefaultValues())){
-                if (dataValue.id() == 19) {
-                    int parrotVariantId = (int) dataValue.value();
+        // I feel like this is not at all how it should be done
+        for ( SynchedEntityData.DataValue<?> dataValue: Objects.requireNonNull(entityData.getNonDefaultValues())){
+            if (dataValue.id() == 19) {
+                int parrotVariantId = (int) dataValue.value();
 
-                    if (parrotVariantId == Parrot.Variant.RED_BLUE.getId()) {
-                        // Note: this is actually never reached, as RED_BLUE is the default variant
-                        correct_feather = ModItems.RED_FEATHER.get();
-                    } else if (parrotVariantId == Parrot.Variant.BLUE.getId()) {
-                        correct_feather = ModItems.BLUE_FEATHER.get();
-                    } else if (parrotVariantId == Parrot.Variant.GRAY.getId()) {
-                        correct_feather = ModItems.LIGHT_GRAY_FEATHER.get();
-                    } else if (parrotVariantId == Parrot.Variant.YELLOW_BLUE.getId()) {
-                        correct_feather = ModItems.LIGHT_BLUE_FEATHER.get();
-                    } else if (parrotVariantId == Parrot.Variant.GREEN.getId()) {
-                        correct_feather = ModItems.LIME_FEATHER.get();
-                    }
-
-                    break;
+                if (parrotVariantId == Parrot.Variant.RED_BLUE.getId()) {
+                    // Note: this is actually never reached, as RED_BLUE is the default variant
+                    correct_feather = ModItems.RED_FEATHER.get();
+                } else if (parrotVariantId == Parrot.Variant.BLUE.getId()) {
+                    correct_feather = ModItems.BLUE_FEATHER.get();
+                } else if (parrotVariantId == Parrot.Variant.GRAY.getId()) {
+                    correct_feather = ModItems.LIGHT_GRAY_FEATHER.get();
+                } else if (parrotVariantId == Parrot.Variant.YELLOW_BLUE.getId()) {
+                    // I may change this to cyan later
+                    correct_feather = ModItems.LIGHT_BLUE_FEATHER.get();
+                } else if (parrotVariantId == Parrot.Variant.GREEN.getId()) {
+                    correct_feather = ModItems.LIME_FEATHER.get();
+                } else {
+                    // Unknown parrot variant, should not mess with it
+                    return generatedLoot;
                 }
+
+                break;
             }
         }
 
@@ -78,9 +87,10 @@ public class ParrotLootReplacer extends LootModifier {
 
         for (ItemStack itemStack: generatedLoot) {
             if (itemStack.getItem() == Items.FEATHER){
-                generatedLoot.remove(itemStack);
+                // Changing the number of feathers to match the number of vanilla feathers that would normally drop
                 coloredFeatherItemStack.setCount(itemStack.getCount());
-                break;
+                // Removing the vanilla feather from the loot
+                generatedLoot.remove(itemStack);
             }
         }
 
