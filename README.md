@@ -18,6 +18,7 @@ https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14t
     
 # Work in progress
 - feather armor
+  - crafted using feathers 
   - very bad protection and durability
   - bad enchantability
   - give some protection against kinetic energy damage
@@ -28,7 +29,20 @@ https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14t
 
 # Planned
 - several new bird species
-  - some with special AI
+  - some with custom AI
+    - some hunt and/or are hunted by other mobs
   - drop corresponding feathers
+  - Main bird ideas (I will probably not implement all of them)
+    - _specie (biome; feather color):_
+    - crow (dark forest / old taiga; black)
+    - kingfisher (river; cyan)
+    - green woodpecker (birch forest; green)
+    - flamingo (swamp; pink)
+    - gull (beach; white?)
+    - swan (river; white)
+    - vulture (badlands; brown)
+    - eagle (stony peaks / windswept hills; ?)
+    - swallows / tits / other passerines (various forest?; various colors)
+    - wild goose (plains; gray?)
 - arrows with colored fletching
   - tipped arrows with colored fletching
