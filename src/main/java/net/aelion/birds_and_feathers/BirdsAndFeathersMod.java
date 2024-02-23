@@ -5,6 +5,7 @@ import net.aelion.birds_and_feathers.blocks.ModBlocks;
 import net.aelion.birds_and_feathers.items.ModCreativeTabs;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.aelion.birds_and_feathers.loot.ModLootModifiers;
+import net.aelion.birds_and_feathers.sound.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,7 @@ public class BirdsAndFeathersMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

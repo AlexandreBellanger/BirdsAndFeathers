@@ -32,5 +32,7 @@ public class ModLanguageProvider extends LanguageProvider {
             this.add("item.birds_and_feathers." + colorId + "_feather_boots", color + " feather boots");
             this.add("item.birds_and_feathers." + colorId + "_winged_feather_boots", color + " winged feather boots");
         }
+
+        this.add("sounds.birds_and_feathers.crow_call", "crow call");
     }
 }

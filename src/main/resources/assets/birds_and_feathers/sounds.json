@@ -1,0 +1,15 @@
+{
+  "crow_call": {
+    "subtitles": "sounds.birds_and_feathers.crow_call",
+    "sounds": [
+      "birds_and_feathers:crow_long_high_1",
+      "birds_and_feathers:crow_long_high_2",
+      "birds_and_feathers:crow_long_low_1",
+      "birds_and_feathers:crow_long_low_2",
+      "birds_and_feathers:crow_short_1",
+      "birds_and_feathers:crow_short_2",
+      "birds_and_feathers:crow_short_3",
+      "birds_and_feathers:crow_short_4"
+    ]
+  }
+}
