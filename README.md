@@ -25,11 +25,12 @@ https://www.youtube.com/watch?v=55qUIf3GMss&list=PLKGarocXCE1H9Y21-pxjt5Pt8bW14t
   - when crouching, the feather cap animates like a cockatoo's crest
   - when enchanted, feather boots become winged boots
     - they then add +1 to feather falling                                    
-  - phantoms are neutral to players wearing feather armor and no other armor type except elytra
+  - phantoms are neutral to players wearing feather armor and no other armor type
+    - however they can wear some non-armor items (elytra, pumpkin, heads...)
 
 # Planned
 - several new bird species
-  - some with custom AI
+  - most with custom AI
     - some hunt and/or are hunted by other mobs
   - drop corresponding feathers
   - Main bird ideas (I will probably not implement all of them)

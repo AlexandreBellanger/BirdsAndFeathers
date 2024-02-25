@@ -35,9 +35,14 @@ public class FeatherArmorItem extends ArmorItem {
     public boolean isTolerableToPhantoms(Player player) {
         boolean hasFeatherArmor = false;
         for (ItemStack armorStack: player.getArmorSlots()) {
+            // Player can have some empty armor slot
             if (armorStack.isEmpty()) continue;
-            if (armorStack.getTags().noneMatch(tag -> tag == ModTags.Items.TOLERATED_BY_PHANTOMS)) return false;
-            if (armorStack.getTags().anyMatch(tag -> tag == ModTags.Items.FEATHER_ARMOR)) hasFeatherArmor = true;
+            // They can also wear some non-armor items (heads, pumpkin, elytra)
+            if (!(armorStack.getItem() instanceof ArmorItem)) continue;
+            // But they need at least one piece of feather armor
+            if (armorStack.is(ModTags.Items.TOLERATED_BY_PHANTOMS)) hasFeatherArmor = true;
+            // And they can not wear any other kind of armor
+            else return false;
         }
         return hasFeatherArmor;
     }
