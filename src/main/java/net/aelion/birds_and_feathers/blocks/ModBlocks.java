@@ -1,8 +1,7 @@
 package net.aelion.birds_and_feathers.blocks;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.items.ModItems;
-import net.aelion.birds_and_feathers.sound.ModSounds;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -19,7 +18,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
-            DeferredRegister.createBlocks(BirdsAndFeathersMod.MOD_ID);
+            DeferredRegister.createBlocks(BirdsAndFeathers.MOD_ID);
 
     // TODO: remove the sound test remains as soon as we have them on a true mob
     public static final DeferredBlock<Block> WHITE_FEATHER_BLOCK = registerBlock("white_feather_block",

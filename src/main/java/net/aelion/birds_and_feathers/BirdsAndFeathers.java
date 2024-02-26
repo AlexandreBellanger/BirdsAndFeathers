@@ -26,15 +26,15 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(BirdsAndFeathersMod.MOD_ID)
-public class BirdsAndFeathersMod
+@Mod(BirdsAndFeathers.MOD_ID)
+public class BirdsAndFeathers
 {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "birds_and_feathers";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public BirdsAndFeathersMod(IEventBus modEventBus) {
+    public BirdsAndFeathers(IEventBus modEventBus) {
 
         ModCreativeTabs.register(modEventBus);
         ModItems.register(modEventBus);

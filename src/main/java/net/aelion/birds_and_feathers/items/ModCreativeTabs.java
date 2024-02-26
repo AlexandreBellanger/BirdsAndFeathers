@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.items;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.blocks.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BirdsAndFeathersMod.MOD_ID);
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BirdsAndFeathers.MOD_ID);
 
     public static final Supplier<CreativeModeTab> FEATHER_TAB = CREATIVE_MODE_TABS.register("feather_tab",
                 () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.FEATHER))

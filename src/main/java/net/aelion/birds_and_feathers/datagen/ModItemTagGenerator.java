@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.datagen;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +21,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     public ModItemTagGenerator(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_,
                                CompletableFuture<TagLookup<Block>> p_275322_,
                                @Nullable ExistingFileHelper existingFileHelper) {
-        super(p_275343_, p_275729_, p_275322_, BirdsAndFeathersMod.MOD_ID, existingFileHelper);
+        super(p_275343_, p_275729_, p_275322_, BirdsAndFeathers.MOD_ID, existingFileHelper);
     }
 
     @Override

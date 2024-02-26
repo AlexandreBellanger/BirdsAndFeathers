@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.datagen;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.loot.ParrotLootReplacer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifiersProvider(PackOutput output) {
-        super(output, BirdsAndFeathersMod.MOD_ID);
+        super(output, BirdsAndFeathers.MOD_ID);
     }
 
     @Override

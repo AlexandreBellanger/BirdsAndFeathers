@@ -1,7 +1,7 @@
 package net.aelion.birds_and_feathers.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.entity.custom.Crow;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -15,7 +15,7 @@ public class CrowRenderer extends MobRenderer<Crow, CrowModel<Crow>> {
 
     @Override
     public ResourceLocation getTextureLocation(Crow pEntity) {
-        return new ResourceLocation(BirdsAndFeathersMod.MOD_ID, "textures/entity/crow.png");
+        return new ResourceLocation(BirdsAndFeathers.MOD_ID, "textures/entity/crow.png");
     }
 
     @Override

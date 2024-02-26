@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.datagen;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -35,7 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, BirdsAndFeathersMod.MOD_ID, existingFileHelper);
+        super(output, BirdsAndFeathers.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     // Shoutout to El_Redstoniano for making this
     private void trimmedArmorItem(DeferredItem<Item> deferredItem) {
-        final String MOD_ID = BirdsAndFeathersMod.MOD_ID;
+        final String MOD_ID = BirdsAndFeathers.MOD_ID;
 
         if(deferredItem.get() instanceof ArmorItem armorItem) {
             trimMaterials.forEach((trimMaterial, value) -> {
@@ -101,6 +101,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder simpleItem(DeferredItem<Item> item){
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(BirdsAndFeathersMod.MOD_ID, "item/" + item.getId().getPath()));
+                new ResourceLocation(BirdsAndFeathers.MOD_ID, "item/" + item.getId().getPath()));
     }
 }

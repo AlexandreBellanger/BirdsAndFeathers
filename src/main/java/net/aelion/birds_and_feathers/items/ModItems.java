@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.items;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.aelion.birds_and_feathers.items.custom.FeatherArmorItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS =
-            DeferredRegister.createItems(BirdsAndFeathersMod.MOD_ID);
+            DeferredRegister.createItems(BirdsAndFeathers.MOD_ID);
 
     public static final DeferredItem<Item> LIGHT_GRAY_FEATHER =
             ITEMS.register("light_gray_feather", () -> new Item(new Item.Properties()));

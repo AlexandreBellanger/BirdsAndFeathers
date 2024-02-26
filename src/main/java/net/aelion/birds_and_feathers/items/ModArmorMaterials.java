@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.items;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
@@ -112,7 +112,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     @Override
     public @NotNull String getName() {
-        return BirdsAndFeathersMod.MOD_ID + ":" + this.name;
+        return BirdsAndFeathers.MOD_ID + ":" + this.name;
     }
 
     @Override

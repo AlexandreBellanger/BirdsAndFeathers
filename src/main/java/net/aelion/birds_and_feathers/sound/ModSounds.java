@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.sound;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
-            DeferredRegister.create(Registries.SOUND_EVENT, BirdsAndFeathersMod.MOD_ID);
+            DeferredRegister.create(Registries.SOUND_EVENT, BirdsAndFeathers.MOD_ID);
 
     public static final Supplier<SoundEvent> CROW_CALL = registerSoundEvent("crow_call");
 
@@ -23,7 +23,7 @@ public class ModSounds {
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(
-                new ResourceLocation(BirdsAndFeathersMod.MOD_ID, name)));
+                new ResourceLocation(BirdsAndFeathers.MOD_ID, name)));
     }
 
     public static void register(IEventBus eventBus) {

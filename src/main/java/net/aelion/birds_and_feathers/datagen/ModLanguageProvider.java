@@ -1,6 +1,6 @@
 package net.aelion.birds_and_feathers.datagen;
 
-import net.aelion.birds_and_feathers.BirdsAndFeathersMod;
+import net.aelion.birds_and_feathers.BirdsAndFeathers;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output, String locale) {
-        super(output, BirdsAndFeathersMod.MOD_ID, locale);
+        super(output, BirdsAndFeathers.MOD_ID, locale);
     }
 
     @Override
