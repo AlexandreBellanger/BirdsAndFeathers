@@ -2,10 +2,13 @@ package net.aelion.birds_and_feathers;
 
 import com.mojang.logging.LogUtils;
 import net.aelion.birds_and_feathers.blocks.ModBlocks;
+import net.aelion.birds_and_feathers.entity.ModEntities;
+import net.aelion.birds_and_feathers.entity.client.CrowRenderer;
 import net.aelion.birds_and_feathers.items.ModCreativeTabs;
 import net.aelion.birds_and_feathers.items.ModItems;
 import net.aelion.birds_and_feathers.loot.ModLootModifiers;
 import net.aelion.birds_and_feathers.sound.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -38,6 +41,7 @@ public class BirdsAndFeathersMod
         ModBlocks.register(modEventBus);
         ModLootModifiers.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -74,8 +78,8 @@ public class BirdsAndFeathersMod
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.CROW.get(), CrowRenderer::new);
         }
     }
 }

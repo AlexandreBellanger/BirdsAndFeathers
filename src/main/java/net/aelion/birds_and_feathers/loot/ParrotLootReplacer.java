@@ -69,9 +69,12 @@ public class ParrotLootReplacer extends LootModifier {
             if (vanillaLootItemStack.getItem() == Items.FEATHER){
                 // Changing the number of feathers to match the number of vanilla feathers that would normally drop
                 coloredFeatherItemStack.setCount(vanillaLootItemStack.getCount());
-                // Removing the vanilla feather from the loot
+
+                // Removing the vanilla feathers from the loot
                 generatedLoot.remove(vanillaLootItemStack);
-                // Even if it was useful, I would not trust resuming the list iteration after removing an entry
+
+                // I don't think any present or future parrot would have 2 stacks of feathers as loot
+                // But even if it was useful, resuming the iteration after removing an entry would be more complicated
                 break;
             }
         }
