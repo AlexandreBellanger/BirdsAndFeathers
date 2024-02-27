@@ -1,11 +1,14 @@
 package net.aelion.birds_and_feathers.entity.custom;
 
+import net.aelion.birds_and_feathers.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -26,6 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+
 
 public class Crow extends Animal implements FlyingAnimal {
 
@@ -56,7 +60,6 @@ public class Crow extends Animal implements FlyingAnimal {
         // this.goalSelector.addGoal(4, new FollowPlayerGoal(this, 1.0, 3.0F, 7.0F));
         this.goalSelector.addGoal(5, new Crow.CrowWanderGoal(this, 1.0));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -165,10 +168,10 @@ public class Crow extends Animal implements FlyingAnimal {
         @javax.annotation.Nullable
         private Vec3 getTreePos() {
             BlockPos blockpos = this.mob.blockPosition();
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-            BlockPos.MutableBlockPos blockpos$mutableblockpos1 = new BlockPos.MutableBlockPos();
+            BlockPos.MutableBlockPos blockPos$mutableBlockPos = new BlockPos.MutableBlockPos();
+            BlockPos.MutableBlockPos blockPos$mutableBlockPos1 = new BlockPos.MutableBlockPos();
 
-            for(BlockPos blockpos1 : BlockPos.betweenClosed(
+            for(BlockPos blockPos1 : BlockPos.betweenClosed(
                     Mth.floor(this.mob.getX() - 3.0),
                     Mth.floor(this.mob.getY() - 6.0),
                     Mth.floor(this.mob.getZ() - 3.0),
@@ -176,13 +179,13 @@ public class Crow extends Animal implements FlyingAnimal {
                     Mth.floor(this.mob.getY() + 6.0),
                     Mth.floor(this.mob.getZ() + 3.0)
             )) {
-                if (!blockpos.equals(blockpos1)) {
-                    BlockState blockstate = this.mob.level().getBlockState(blockpos$mutableblockpos1.setWithOffset(blockpos1, Direction.DOWN));
+                if (!blockpos.equals(blockPos1)) {
+                    BlockState blockstate = this.mob.level().getBlockState(blockPos$mutableBlockPos1.setWithOffset(blockPos1, Direction.DOWN));
                     boolean flag = blockstate.getBlock() instanceof LeavesBlock || blockstate.is(BlockTags.LOGS);
                     if (flag
-                            && this.mob.level().isEmptyBlock(blockpos1)
-                            && this.mob.level().isEmptyBlock(blockpos$mutableblockpos.setWithOffset(blockpos1, Direction.UP))) {
-                        return Vec3.atBottomCenterOf(blockpos1);
+                            && this.mob.level().isEmptyBlock(blockPos1)
+                            && this.mob.level().isEmptyBlock(blockPos$mutableBlockPos.setWithOffset(blockPos1, Direction.UP))) {
+                        return Vec3.atBottomCenterOf(blockPos1);
                     }
                 }
             }
@@ -191,5 +194,24 @@ public class Crow extends Animal implements FlyingAnimal {
         }
     }
 
+    @javax.annotation.Nullable
+    @Override
+    public SoundEvent getAmbientSound() {
+        return ModSounds.CROW_CALL.get();
+    }
 
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return SoundEvents.PARROT_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.PARROT_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pPos, BlockState pBlock) {
+        this.playSound(SoundEvents.PARROT_STEP, 0.15F, 1.0F);
+    }
 }
