@@ -6,17 +6,21 @@ package net.aelion.birds_and_feathers.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.aelion.birds_and_feathers.entity.custom.Crow;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart crow;
+	private final ModelPart head;
 
 	public CrowModel(ModelPart root) {
 		this.crow = root.getChild("crow");
+		this.head = crow.getChild("head");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -57,7 +61,16 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		applyHeadRotation(netHeadYaw, headPitch);
+	}
 
+	private void applyHeadRotation(float netHeadYaw, float headPitch) {
+		netHeadYaw = Mth.clamp(netHeadYaw, -30, 30);
+		headPitch = Mth.clamp(headPitch, -25, 45);
+
+		this.head.yRot = netHeadYaw * ((float) Math.PI / 100f);
+		this.head.xRot = headPitch * ((float) Math.PI / 100f);
 	}
 
 	@Override

@@ -49,6 +49,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 simpleItem(featherArmor);
             else trimmedArmorItem(featherArmor);
         }
+
+        withExistingParent(ModItems.CROW_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     // Shoutout to El_Redstoniano for making this

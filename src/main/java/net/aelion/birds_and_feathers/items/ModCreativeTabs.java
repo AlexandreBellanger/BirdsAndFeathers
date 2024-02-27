@@ -31,6 +31,7 @@ public class ModCreativeTabs {
                                 pOutput.accept(featherBlock);
                             for (DeferredItem<Item> armorItem: ModItems.FEATHER_ARMOR_ITEMS)
                                 pOutput.accept(armorItem);
+                            pOutput.accept(ModItems.CROW_SPAWN_EGG);
                         })
                         .build());
 

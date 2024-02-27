@@ -29,10 +29,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
 
 
 public class Crow extends Animal implements FlyingAnimal {
-
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
@@ -111,6 +111,16 @@ public class Crow extends Animal implements FlyingAnimal {
     }
 
     @Override
+    public Vec3 getLeashOffset() {
+        return new Vec3(0.0, 0.5F * this.getEyeHeight(), this.getBbWidth() * 0.4F);
+    }
+
+    @Override
+    protected Vector3f getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pDimensions, float pScale) {
+        return new Vector3f(0.0F, pDimensions.height - 0.4375F * pScale, 0.0F);
+    }
+
+    @Override
     public void aiStep() {
         super.aiStep();
         this.calculateFlapping();
@@ -180,11 +190,13 @@ public class Crow extends Animal implements FlyingAnimal {
                     Mth.floor(this.mob.getZ() + 3.0)
             )) {
                 if (!blockpos.equals(blockPos1)) {
-                    BlockState blockstate = this.mob.level().getBlockState(blockPos$mutableBlockPos1.setWithOffset(blockPos1, Direction.DOWN));
+                    BlockState blockstate = this.mob.level().getBlockState(
+                            blockPos$mutableBlockPos1.setWithOffset(blockPos1, Direction.DOWN));
                     boolean flag = blockstate.getBlock() instanceof LeavesBlock || blockstate.is(BlockTags.LOGS);
                     if (flag
                             && this.mob.level().isEmptyBlock(blockPos1)
-                            && this.mob.level().isEmptyBlock(blockPos$mutableBlockPos.setWithOffset(blockPos1, Direction.UP))) {
+                            && this.mob.level().isEmptyBlock(
+                                    blockPos$mutableBlockPos.setWithOffset(blockPos1, Direction.UP))) {
                         return Vec3.atBottomCenterOf(blockPos1);
                     }
                 }

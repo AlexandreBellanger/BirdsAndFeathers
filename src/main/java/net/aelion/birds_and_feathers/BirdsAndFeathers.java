@@ -67,6 +67,9 @@ public class BirdsAndFeathers
             for (DeferredItem<Item> armorItem: ModItems.FEATHER_ARMOR_ITEMS)
                 event.accept(armorItem);
         }
+        else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModItems.CROW_SPAWN_EGG);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

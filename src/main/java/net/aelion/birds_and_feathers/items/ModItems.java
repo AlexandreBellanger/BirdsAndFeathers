@@ -1,10 +1,13 @@
 package net.aelion.birds_and_feathers.items;
 
 import net.aelion.birds_and_feathers.BirdsAndFeathers;
+import net.aelion.birds_and_feathers.entity.ModEntities;
 import net.aelion.birds_and_feathers.items.custom.FeatherArmorItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -340,6 +343,10 @@ public class ModItems {
             PINK_FEATHER_BOOTS,
             PINK_WINGED_FEATHER_BOOTS
     );
+
+    public static final DeferredItem<Item> CROW_SPAWN_EGG =
+            ITEMS.register("crow_spawn_egg", () -> new DeferredSpawnEggItem(
+                    ModEntities.CROW, 0x7e9680, 0xc5d1cb, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
