@@ -20,11 +20,8 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(BirdsAndFeathers.MOD_ID);
 
-    // TODO: remove the sound test remains as soon as we have them on a true mob
     public static final DeferredBlock<Block> WHITE_FEATHER_BLOCK = registerBlock("white_feather_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
-                    //.sound(ModSounds.FEATHER_BLOCK_SOUND_TYPE)
-            ));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
     public static final DeferredBlock<Block> LIGHT_GRAY_FEATHER_BLOCK = registerBlock("light_gray_feather_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_WOOL)));
     public static final DeferredBlock<Block> GRAY_FEATHER_BLOCK = registerBlock("gray_feather_block",

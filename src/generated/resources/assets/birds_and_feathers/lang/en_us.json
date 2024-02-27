@@ -111,5 +111,8 @@
   "item.birds_and_feathers.yellow_feather_leggings": "Yellow feather pants",
   "item.birds_and_feathers.yellow_winged_feather_boots": "Yellow winged feather boots",
   "itemGroup.featherTab": "Birds and Feathers",
-  "sounds.birds_and_feathers.crow_call": "crow call"
+  "sounds.birds_and_feathers.crow_ambient": "Crow caws",
+  "sounds.birds_and_feathers.crow_death": "Crow dies",
+  "sounds.birds_and_feathers.crow_fly": "Crow flutters",
+  "sounds.birds_and_feathers.crow_hurt": "Crow hurts"
 }

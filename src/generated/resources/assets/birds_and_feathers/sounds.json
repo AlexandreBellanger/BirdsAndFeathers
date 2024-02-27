@@ -1,0 +1,40 @@
+{
+  "crow_ambient": {
+    "sounds": [
+      "birds_and_feathers:crow_short_1",
+      "birds_and_feathers:crow_short_2",
+      "birds_and_feathers:crow_short_3",
+      "birds_and_feathers:crow_short_4"
+    ],
+    "subtitle": "sounds.birds_and_feathers.crow_ambient"
+  },
+  "crow_death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "birds_and_feathers:crow_ambient",
+        "pitch": 0.5
+      }
+    ],
+    "subtitle": "sounds.birds_and_feathers.crow_death"
+  },
+  "crow_fly": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.parrot.fly"
+      }
+    ],
+    "subtitle": "sounds.birds_and_feathers.crow_fly"
+  },
+  "crow_hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "birds_and_feathers:crow_ambient",
+        "pitch": 1.5
+      }
+    ],
+    "subtitle": "sounds.birds_and_feathers.crow_hurt"
+  }
+}

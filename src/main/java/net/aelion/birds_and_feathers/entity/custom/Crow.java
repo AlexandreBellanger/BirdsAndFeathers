@@ -141,7 +141,7 @@ public class Crow extends Animal implements FlyingAnimal {
 
     @Override
     protected void onFlap() {
-        this.playSound(SoundEvents.PARROT_FLY, 0.15F, 1.0F);
+        this.playSound(ModSounds.CROW_FlY.get(), 0.15F, 1.0F);
         this.nextFlap = this.flyDist + this.flapSpeed / 2.0F;
     }
 
@@ -197,17 +197,17 @@ public class Crow extends Animal implements FlyingAnimal {
     @javax.annotation.Nullable
     @Override
     public SoundEvent getAmbientSound() {
-        return ModSounds.CROW_CALL.get();
+        return ModSounds.CROW_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.PARROT_HURT;
+        return ModSounds.CROW_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PARROT_DEATH;
+        return ModSounds.CROW_DEATH.get();
     }
 
     @Override
