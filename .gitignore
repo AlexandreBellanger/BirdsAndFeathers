@@ -26,4 +26,4 @@ run-data
 .cache
 
 repo
-/src/Python/textures/test_save/
+test_save

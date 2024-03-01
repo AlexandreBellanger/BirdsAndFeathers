@@ -94,17 +94,9 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 				this.rightLeg.xRot += Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 				break;
 			case FLYING:
-				// float f2 = ageInTicks * 0.3F;
-				// this.head.y = 15.69F + f2;
 				this.tail.xRot = 1.015F + Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
-				// this.tail.y = 21.07F + f2;
-				// this.body.y = 16.5F + f2;
 				this.leftWing.zRot = -0.0873F - ageInTicks;
-				// this.leftWing.y = 16.94F + f2;
 				this.rightWing.zRot = 0.0873F + ageInTicks;
-				// this.rightWing.y = 16.94F + f2;
-				// this.leftLeg.y = 22.0F + f2;
-				// this.rightLeg.y = 22.0F + f2;
 				break;
 		}
 	}
@@ -134,7 +126,8 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay,
+							   float red, float green, float blue, float alpha) {
 		crow.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
@@ -142,7 +135,6 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 	public ModelPart root() {
 		return crow;
 	}
-
 
 	@OnlyIn(Dist.CLIENT)
 	public enum State {
