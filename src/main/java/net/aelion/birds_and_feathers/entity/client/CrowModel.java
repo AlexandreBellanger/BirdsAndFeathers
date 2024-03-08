@@ -43,14 +43,15 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition crow = partdefinition.addOrReplaceChild("crow", CubeListBuilder.create(), PartPose.offset(0.0F, 23.0F, 0.0F));
 
-		PartDefinition head = crow.addOrReplaceChild("head", CubeListBuilder.create().texOffs(20, 12).addBox(-2.0F, -1.25F, -3.0F, 4.0F, 3.0F, 3.0F, new CubeDeformation(0.0F))
-				.texOffs(20, 18).addBox(-1.0F, 0.4F, -5.3F, 2.0F, 1.0F, 3.0F, new CubeDeformation(-0.1F)), PartPose.offset(0.0F, -7.0F, -3.0F));
+		PartDefinition head = crow.addOrReplaceChild("head", CubeListBuilder.create().texOffs(19, 11).addBox(-2.0F, -2.25F, -3.0F, 4.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -7.0F, -3.0F));
 
-		PartDefinition beak_top_r1 = head.addOrReplaceChild("beak_top_r1", CubeListBuilder.create().texOffs(0, 23).addBox(-1.0F, -3.4624F, -7.372F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.9137F, 2.4413F, 0.3927F, 0.0F, 0.0F));
+		PartDefinition beak_bottom_r1 = head.addOrReplaceChild("beak_bottom_r1", CubeListBuilder.create().texOffs(20, 18).addBox(-1.0F, -0.2619F, -1.3413F, 2.0F, 1.0F, 3.0F, new CubeDeformation(-0.1F)), PartPose.offsetAndRotation(0.0F, -0.2509F, -3.5867F, -0.0436F, 0.0F, 0.0F));
+
+		PartDefinition beak_top_r1 = head.addOrReplaceChild("beak_top_r1", CubeListBuilder.create().texOffs(0, 23).addBox(-1.0F, -0.7807F, -1.5555F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.2509F, -3.5867F, 0.3491F, 0.0F, 0.0F));
 
 		PartDefinition body = crow.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, 1.0F));
 
-		PartDefinition body_r1 = body.addOrReplaceChild("body_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-2.5F, -1.6742F, -3.1283F, 5.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.0863F, -1.5587F, -0.4363F, 0.0F, 0.0F));
+		PartDefinition cube_r1 = body.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-2.5F, -1.6742F, -3.1283F, 5.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.0863F, -1.5587F, -0.7418F, 0.0F, 0.0F));
 
 		PartDefinition left_leg = crow.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 4).addBox(-0.75F, -1.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(2, 12).addBox(-0.25F, 1.0F, 0.0F, 1.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
@@ -58,13 +59,15 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition left_wing = crow.addOrReplaceChild("left_wing", CubeListBuilder.create(), PartPose.offset(2.5F, -8.0F, -2.0F));
 
-		PartDefinition left_wing_r1 = left_wing.addOrReplaceChild("left_wing_r1", CubeListBuilder.create().texOffs(10, 15).addBox(2.5F, -1.9481F, -2.5595F, 1.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.5F, 1.9137F, 1.4413F, -0.2182F, 0.0F, 0.0F));
+		PartDefinition cube_r2 = left_wing.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(10, 15).addBox(2.5F, -1.9481F, -2.5595F, 1.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.5F, 1.9137F, 1.4413F, -0.5236F, 0.0F, 0.0F));
 
 		PartDefinition right_wing = crow.addOrReplaceChild("right_wing", CubeListBuilder.create(), PartPose.offset(-2.5F, -8.0F, -2.0F));
 
-		PartDefinition right_wing_r1 = right_wing.addOrReplaceChild("right_wing_r1", CubeListBuilder.create().texOffs(0, 12).addBox(-3.5F, -1.9481F, -2.5595F, 1.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.5F, 1.9137F, 1.4413F, -0.2182F, 0.0F, 0.0F));
+		PartDefinition cube_r3 = right_wing.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(0, 12).addBox(-3.5F, -1.9481F, -2.5595F, 1.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.5F, 1.9137F, 1.4413F, -0.5236F, 0.0F, 0.0F));
 
-		PartDefinition tail = crow.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(18, 0).addBox(-2.0F, -0.5F, -1.0F, 4.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -5.5F, 4.0F));
+		PartDefinition tail = crow.addOrReplaceChild("tail", CubeListBuilder.create(), PartPose.offset(0.0F, -5.5F, 4.0F));
+
+		PartDefinition cube_r4 = tail.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(18, 0).addBox(-2.0F, 0.0863F, 3.5587F, 4.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.5863F, -4.5587F, -0.2182F, 0.0F, 0.0F));
 
 		PartDefinition right_leg = crow.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.25F, -1.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 12).addBox(-0.75F, 1.0F, 0.0F, 1.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
@@ -94,7 +97,7 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 				this.rightLeg.xRot += Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 				break;
 			case FLYING:
-				this.tail.xRot = 1.015F + Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
+				this.tail.xRot = 0F + Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
 				this.leftWing.zRot = -0.0873F - ageInTicks;
 				this.rightWing.zRot = 0.0873F + ageInTicks;
 				break;

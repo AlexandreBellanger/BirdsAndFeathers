@@ -64,7 +64,7 @@ def generate_feather_armors(save_path):
 
 
 def less_dark_crow(save_path):
-    base_texture = Image.open("textures/birds/crow.png")
+    base_texture = Image.open("textures/birds/crowV2.png")
     texture_copy = base_texture.copy()
     alter_texture(texture_copy, 1, 255, whiten_crow_pixel)
     texture_copy.save(save_path)
@@ -73,4 +73,4 @@ def less_dark_crow(save_path):
 # generate_feather_block_textures("../main/resources/assets/birds_and_feathers/textures/block/")
 # generate_feather_textures("textures/test_save/")
 # generate_feather_armors("../main/resources/assets/birds_and_feathers/textures/")
-less_dark_crow("textures/test_save/crow_test.png")
+less_dark_crow("textures/test_save/crow.png")
