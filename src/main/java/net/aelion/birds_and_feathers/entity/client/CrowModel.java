@@ -27,14 +27,14 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart rightLeg;
 
 	public CrowModel(ModelPart root) {
-		this.crow = root.getChild("crow");
-		this.body = crow.getChild("body");
-		this.head = crow.getChild("head");
-		this.tail = crow.getChild("tail");
-		this.leftWing = crow.getChild("left_wing");
-		this.rightWing = crow.getChild("right_wing");
-		this.leftLeg = crow.getChild("left_leg");
-		this.rightLeg = crow.getChild("right_leg");
+		crow = root.getChild("crow");
+		body = crow.getChild("body");
+		head = crow.getChild("head");
+		tail = crow.getChild("tail");
+		leftWing = crow.getChild("left_wing");
+		rightWing = crow.getChild("right_wing");
+		leftLeg = crow.getChild("left_leg");
+		rightLeg = crow.getChild("right_leg");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -86,30 +86,31 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 						  float netHeadYaw, float headPitch) {
 
 		CrowModel.State state = getState((Crow) entity);
-		applyHeadRotation(netHeadYaw, headPitch);
+		applyHeadRotation(netHeadYaw, headPitch, state);
 		applyLimbSwing(state, limbSwing, limbSwingAmount, ageInTicks);
 	}
 
 	private void applyLimbSwing(CrowModel.State state, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		switch (state) {
 			case STANDING:
-				this.leftLeg.xRot += Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-				this.rightLeg.xRot += Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+				leftLeg.xRot += Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+				rightLeg.xRot += Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 				break;
 			case FLYING:
-				this.tail.xRot = 0F + Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
-				this.leftWing.zRot = -0.0873F - ageInTicks;
-				this.rightWing.zRot = 0.0873F + ageInTicks;
+				tail.xRot += Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
+				leftWing.zRot = -ageInTicks;
+				rightWing.zRot = ageInTicks;
 				break;
 		}
 	}
 
-	private void applyHeadRotation(float netHeadYaw, float headPitch) {
+	private void applyHeadRotation(float netHeadYaw, float headPitch, State state) {
 		netHeadYaw = Mth.clamp(netHeadYaw, -30, 30);
 		headPitch = Mth.clamp(headPitch, -25, 45);
 
-		this.head.yRot = netHeadYaw * ((float) Math.PI / 100f);
-		this.head.xRot = headPitch * ((float) Math.PI / 100f);
+		head.yRot = netHeadYaw * ((float) Math.PI / 100f);
+		if (!(state == State.FLYING))
+			head.xRot = headPitch * ((float) Math.PI / 100f);
 	}
 
 	private void prepare(CrowModel.State state) {
@@ -118,8 +119,11 @@ public class CrowModel<T extends Entity> extends HierarchicalModel<T> {
 			case STANDING:
 				break;
 			case FLYING:
-				this.leftLeg.xRot += (float) (Math.PI * 2.0 / 9.0);
-				this.rightLeg.xRot += (float) (Math.PI * 2.0 / 9.0);
+				crow.xRot += (float) (Math.PI / 8.0);
+				head.xRot -= (float) (Math.PI / 8.0);
+				tail.xRot -= (float) (Math.PI * 3.0 / 32.0);
+				leftLeg.xRot += (float) (Math.PI * 2.0 / 9.0);
+				rightLeg.xRot += (float) (Math.PI * 2.0 / 9.0);
 				break;
 		}
 	}
