@@ -1,6 +1,7 @@
 package net.aelion.birds_and_feathers.entity.custom;
 
 import net.aelion.birds_and_feathers.sound.ModSounds;
+import net.aelion.birds_and_feathers.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -21,7 +22,6 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -53,10 +53,12 @@ public class Crow extends Animal implements FlyingAnimal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         // TODO: Implement this (see song made by Madilyn Mei)
         // this.goalSelector.addGoal(1, new Crow.KleptomaniacrowQuest());
-        // TODO: Need a shiny item tag to tempt crow
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.05, Ingredient.of(Items.DIAMOND), false));
+        // TODO: A custom goal would be better
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.05,
+                Ingredient.of(ModTags.Items.CROW_LOVED), true));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
 
+        // TODO: Custom goal(s) to annoy player
         // this.goalSelector.addGoal(4, new FollowPlayerGoal(this, 1.0, 3.0F, 7.0F));
         this.goalSelector.addGoal(5, new Crow.CrowWanderGoal(this, 1.0));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));

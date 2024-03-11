@@ -26,14 +26,17 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
-        this.tag(ModTags.Items.FEATHER).add(Items.FEATHER);
+        tag(ModTags.Items.FEATHER).add(Items.FEATHER);
         for (DeferredItem<Item> feather: ModItems.COLORED_FEATHERS)
-            this.tag(ModTags.Items.FEATHER).add(feather.get());
+            tag(ModTags.Items.FEATHER).add(feather.get());
 
         for (DeferredItem<Item> featherArmor: ModItems.FEATHER_ARMOR_ITEMS){
-            this.tag(ModTags.Items.TOLERATED_BY_PHANTOMS).add(featherArmor.get());
+            tag(ModTags.Items.TOLERATED_BY_PHANTOMS).add(featherArmor.get());
             if (!featherArmor.getId().getPath().contains("helmet"))
-                this.tag(ItemTags.TRIMMABLE_ARMOR).add(featherArmor.get());
+                tag(ItemTags.TRIMMABLE_ARMOR).add(featherArmor.get());
         }
+
+        tag(ModTags.Items.CROW_LOVED).add(Items.GOLD_NUGGET, Items.GOLD_INGOT, Items.DIAMOND, Items.EMERALD,
+                Items.QUARTZ, Items.AMETHYST_SHARD, Items.ECHO_SHARD, Items.CLOCK);
     }
 }

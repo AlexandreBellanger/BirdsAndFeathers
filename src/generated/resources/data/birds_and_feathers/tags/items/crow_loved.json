@@ -1,0 +1,12 @@
+{
+  "values": [
+    "minecraft:gold_nugget",
+    "minecraft:gold_ingot",
+    "minecraft:diamond",
+    "minecraft:emerald",
+    "minecraft:quartz",
+    "minecraft:amethyst_shard",
+    "minecraft:echo_shard",
+    "minecraft:clock"
+  ]
+}

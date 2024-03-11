@@ -22,9 +22,12 @@ public class CrowRenderer extends MobRenderer<Crow, CrowModel<Crow>> {
     public void render(Crow pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
-        // TODO: Maybe rescale here
         if (pEntity.isBaby()) {
             pPoseStack.scale(0.5f, 0.5f, 0.5f);
+        }
+        else {
+            // TODO: tweak size ?
+            pPoseStack.scale(1.2f, 1.2f, 1.2f);
         }
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
